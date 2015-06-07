@@ -1,0 +1,5 @@
+D:\DevelopMent2015\OpenSource\SharpConfig-master\SharpConfig\bin\Debug\SharpConfig.dll
+D:\DevelopMent2015\OpenSource\SharpConfig-master\SharpConfig\bin\Debug\SharpConfig.pdb
+D:\DevelopMent2015\OpenSource\SharpConfig-master\SharpConfig\obj\Debug\net20\SharpConfig.dll
+D:\DevelopMent2015\OpenSource\SharpConfig-master\SharpConfig\obj\Debug\net20\SharpConfig.pdb
+D:\DevelopMent2015\OpenSource\SharpConfig-master\SharpConfig\bin\Debug\SharpConfig.XML

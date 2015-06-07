@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+  
+  <Language Name="default">
+    <Styles>
+      <Style Name="Default" FontName="Consolas" Size="9"/>
+    </Styles>
+  </Language>
+  
+  <Language Name="ini">
+    <Indentation TabWidth="2"/>
+    <Lexer LineCommentPrefix=";" >
+    </Lexer>
+    <Styles>
+      <Style Name="OPERATOR" ForeColor="#444444"/>
+      <Style Name="NUMBER" ForeColor="#DAA520"/>
+    </Styles>
+  </Language>
+  
+</ScintillaNET>

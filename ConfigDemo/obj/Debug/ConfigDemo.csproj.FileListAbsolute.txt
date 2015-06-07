@@ -1,0 +1,8 @@
+D:\DevelopMent2015\OpenSource\SharpConfig-master\ConfigDemo\bin\Debug\example.ini
+D:\DevelopMent2015\OpenSource\SharpConfig-master\ConfigDemo\bin\Debug\ConfigDemo.exe
+D:\DevelopMent2015\OpenSource\SharpConfig-master\ConfigDemo\bin\Debug\ConfigDemo.pdb
+D:\DevelopMent2015\OpenSource\SharpConfig-master\ConfigDemo\bin\Debug\SharpConfig.dll
+D:\DevelopMent2015\OpenSource\SharpConfig-master\ConfigDemo\bin\Debug\SharpConfig.pdb
+D:\DevelopMent2015\OpenSource\SharpConfig-master\ConfigDemo\obj\Debug\ConfigDemo.csprojResolveAssemblyReference.cache
+D:\DevelopMent2015\OpenSource\SharpConfig-master\ConfigDemo\obj\Debug\ConfigDemo.exe
+D:\DevelopMent2015\OpenSource\SharpConfig-master\ConfigDemo\obj\Debug\ConfigDemo.pdb

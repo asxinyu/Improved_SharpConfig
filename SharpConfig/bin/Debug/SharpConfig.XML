@@ -1,0 +1,476 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpConfig</name>
+    </assembly>
+    <members>
+        <member name="T:SharpConfig.Comment">
+            <summary>代表配置文件中的一次注释，或者叫做评注</summary>
+        </member>
+        <member name="M:SharpConfig.Comment.#ctor(System.String,System.Char)">
+            <summary>
+            初始化一个<see cref="T:SharpConfig.Comment"/> 对象
+            </summary>
+            <param name="value"> 注释值</param>
+            <param name="symbol">先顶注释的标记符</param>
+        </member>
+        <member name="M:SharpConfig.Comment.ToString">
+             <summary>
+             Returns the fully qualified type name of this instance.
+             </summary>
+            
+             <returns>
+             A <see cref="T:System.String" /> containing a fully qualified type name.
+             </returns>
+        </member>
+        <member name="P:SharpConfig.Comment.Value">
+            <summary>
+            Gets or sets the value of the comment.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.Comment.Symbol">
+            <summary>
+            Gets or sets the delimiting symbol of the comment.
+            </summary>
+        </member>
+        <member name="T:SharpConfig.Configuration">
+            <summary>
+            代表一个配置文件：1个Configurations包含1个或者多个Section,
+            每一个Section包括一个或者多个Setting.配置类<see cref="T:SharpConfig.Configuration"/> 可以处理多种文件格式，
+            如 .ini , .cfg以及其他配置格式.
+            </summary>
+        </member>
+        <member name="F:SharpConfig.Configuration.mNumberFormat">
+            <summary>数值格式</summary>
+        </member>
+        <member name="F:SharpConfig.Configuration.mValidCommentChars">
+            <summary>合法注释标识符号</summary>
+        </member>
+        <member name="M:SharpConfig.Configuration.#ctor">
+            <summary>初始化一个<see cref="T:SharpConfig.Configuration"/> 类的实例对象</summary>
+        </member>
+        <member name="M:SharpConfig.Configuration.GetEnumerator">
+            <summary>
+            Gets an enumerator that iterates through the configuration.
+            </summary>
+        </member>
+        <member name="M:SharpConfig.Configuration.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets an enumerator that iterates through the configuration.
+            </summary>
+        </member>
+        <member name="M:SharpConfig.Configuration.Add(SharpConfig.Section)">
+            <summary>
+            Adds a section to the configuration.
+            </summary>
+            <param name="section">The section to add.</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.Clear">
+            <summary>
+            Clears the configuration of all sections.
+            </summary>
+        </member>
+        <member name="M:SharpConfig.Configuration.Contains(SharpConfig.Section)">
+            <summary>
+            Determines whether a specified section is contained in the configuration.
+            </summary>
+            <param name="section">The section to check for containment.</param>
+            <returns>True if the section is contained in the configuration; false otherwise.</returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.Contains(System.String)">
+            <summary>
+            Determines whether a specifically named setting is contained in the section.
+            </summary>
+            <param name="sectionName">The name of the section.</param>
+            <returns>True if the setting is contained in the section; false otherwise.</returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.Remove(System.String)">
+            <summary>
+            Removes a section from this section by its name.
+            </summary>
+            <param name="sectionName">The case-sensitive name of the section to remove.</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.Remove(SharpConfig.Section)">
+            <summary>
+            Removes a section from the configuration.
+            </summary>
+            <param name="section">The section to remove.</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.LoadFromFile(System.String)">
+            <summary>从配置文件直接加载，自动检测编码类型，以及使用默认的设置</summary>
+            <param name="filename">本地配置文件名称</param>
+            <returns>
+            The loaded <see cref="T:SharpConfig.Configuration"/> object.
+            </returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.LoadFromFile(System.String,System.Text.Encoding)">
+            <summary>从配置文件直接加载</summary>
+            <param name="filename">本地配置文件名称</param>
+            <param name="encoding">文件的编码类型，如果为Null,则自动检测</param>
+            <returns>
+            The loaded <see cref="T:SharpConfig.Configuration"/> object.
+            </returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.LoadFromStream(System.IO.Stream)">
+             <summary>
+             Loads a configuration from a text stream auto-detecting the encoding and
+             using the default parsing settings.
+             </summary>
+            
+             <param name="stream">The text stream to load the configuration from.</param>
+            
+             <returns>
+             The loaded <see cref="T:SharpConfig.Configuration"/> object.
+             </returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.LoadFromStream(System.IO.Stream,System.Text.Encoding)">
+             <summary>
+             Loads a configuration from a text stream.
+             </summary>
+            
+             <param name="stream">   The text stream to load the configuration from.</param>
+             <param name="encoding"> The encoding applied to the contents of the stream. Specify null to auto-detect the encoding.</param>
+            
+             <returns>
+             The loaded <see cref="T:SharpConfig.Configuration"/> object.
+             </returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.LoadFromText(System.String)">
+             <summary>
+             Loads a configuration from text (source code).
+             </summary>
+            
+             <param name="source">   The text (source code) of the configuration.</param>
+            
+             <returns>
+             The loaded <see cref="T:SharpConfig.Configuration"/> object.
+             </returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.LoadBinary(System.String)">
+             <summary>
+             Loads a configuration from a binary file using the <b>default</b> <see cref="T:System.IO.BinaryReader"/>.
+             </summary>
+            
+             <param name="filename">The location of the configuration file.</param>
+            
+             <returns>
+             The loaded configuration.
+             </returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.LoadBinary(System.String,System.IO.BinaryReader)">
+             <summary>
+             Loads a configuration from a binary file using a specific <see cref="T:System.IO.BinaryReader"/>.
+             </summary>
+            
+             <param name="filename">The location of the configuration file.</param>
+             <param name="reader">  The reader to use. Specify null to use the default <see cref="T:System.IO.BinaryReader"/>.</param>
+            
+             <returns>
+             The loaded configuration.
+             </returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.LoadBinary(System.IO.Stream)">
+             <summary>
+             Loads a configuration from a binary stream, using the <b>default</b> <see cref="T:System.IO.BinaryReader"/>.
+             </summary>
+            
+             <param name="stream">The stream to load the configuration from.</param>
+            
+             <returns>
+             The loaded configuration.
+             </returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.LoadBinary(System.IO.Stream,System.IO.BinaryReader)">
+             <summary>
+             Loads a configuration from a binary stream, using a specific <see cref="T:System.IO.BinaryReader"/>.
+             </summary>
+            
+             <param name="stream">The stream to load the configuration from.</param>
+             <param name="reader">The reader to use. Specify null to use the default <see cref="T:System.IO.BinaryReader"/>.</param>
+            
+             <returns>
+             The loaded configuration.
+             </returns>
+        </member>
+        <member name="M:SharpConfig.Configuration.Save(System.String)">
+            <summary>保存配置文件到指定文件，使用默认的 UTF8 编码</summary>
+            <param name="filename">要保存的配置文件的名称</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.Save(System.String,System.Text.Encoding)">
+            <summary>保存配置文件到指定文件</summary>
+            <param name="filename">配置文件名称</param>
+            <param name="encoding">编码，如果为null，默认使用UTF8</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.Save(System.IO.Stream)">
+            <summary>保存配置信息到文件流中，使用默认的UTF8编码</summary>
+            <param name="stream">保存配置信息的 流</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.Save(System.IO.Stream,System.Text.Encoding)">
+            <summary>保存配置信息到文件流中</summary>
+            <param name="stream">The stream to save the configuration to.</param>
+            <param name="encoding">The character encoding to use. Specify null to use the default encoding, which is UTF8.</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.SaveBinary(System.String)">
+             <summary>
+             Saves the configuration to a binary file, using the default <see cref="T:System.IO.BinaryWriter"/>.
+             </summary>
+            
+             <param name="filename">The location of the configuration file.</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.SaveBinary(System.String,System.IO.BinaryWriter)">
+             <summary>
+             Saves the configuration to a binary file, using a specific <see cref="T:System.IO.BinaryWriter"/>.
+             </summary>
+            
+             <param name="filename">The location of the configuration file.</param>
+             <param name="writer">  The writer to use. Specify null to use the default writer.</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.SaveBinary(System.IO.Stream)">
+             <summary>
+             Saves the configuration to a binary stream, using the default <see cref="T:System.IO.BinaryWriter"/>.
+             </summary>
+            
+             <param name="stream">The stream to save the configuration to.</param>
+        </member>
+        <member name="M:SharpConfig.Configuration.SaveBinary(System.IO.Stream,System.IO.BinaryWriter)">
+             <summary>
+             Saves the configuration to a binary file, using a specific <see cref="T:System.IO.BinaryWriter"/>.
+             </summary>
+            
+             <param name="stream">The stream to save the configuration to.</param>
+             <param name="writer">The writer to use. Specify null to use the default writer.</param>
+        </member>
+        <member name="P:SharpConfig.Configuration.NumberFormat">
+            <summary>
+            Gets or sets the number format that is used for value conversion in Section.GetValue().
+            The default value is <b>CultureInfo.InvariantCulture.NumberFormat</b>.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.Configuration.ValidCommentChars">
+            <summary>获取或者设置 注释标识字符</summary>
+        </member>
+        <member name="P:SharpConfig.Configuration.IgnoreInlineComments">
+            <summary>
+            Gets or sets a value indicating whether inline-comments
+            should be ignored when parsing a configuration.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.Configuration.IgnorePreComments">
+            <summary>
+            Gets or sets a value indicating whether pre-comments
+            should be ignored when parsing a configuration.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.Configuration.SectionCount">
+            <summary>
+            Gets the number of sections that are in the configuration.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.Configuration.Item(System.Int32)">
+            <summary>根据索引获取Section</summary>
+            <param name="index">要获取的section的位置</param>
+        </member>
+        <member name="P:SharpConfig.Configuration.Item(System.String)">
+            <summary>根据名称获取Section</summary>
+            <param name="name">Section的名称</param>
+            <returns>如果存在就返回，否则就会新建1个指定名称的Section，并默认加到配置文件中去</returns>
+        </member>
+        <member name="T:SharpConfig.ConfigurationElement">
+            <summary>
+            Represents the base class of all elements
+            that exist in a <see cref="T:SharpConfig.Configuration"/>,
+            for example sections and settings.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.ConfigurationElement.Name">
+            <summary>
+            Gets or sets the name of this element.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.ConfigurationElement.Comment">
+            <summary>
+            Gets or sets the comment of this element.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.ConfigurationElement.PreComments">
+            <summary>
+            Gets the list of comments above this element.
+            </summary>
+        </member>
+        <member name="T:SharpConfig.ParserException">
+            <summary>
+            Represents an error that occurred during
+            the configuration parsing stage.
+            </summary>
+        </member>
+        <member name="T:SharpConfig.Setting">
+            <summary>代表<see cref="T:SharpConfig.Configuration"/>中的一个设置项目，Settings存储在<see cref="T:SharpConfig.Section"/>中.</summary>
+        </member>
+        <member name="M:SharpConfig.Setting.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpConfig.Setting"/> class.
+            </summary>
+        </member>
+        <member name="M:SharpConfig.Setting.#ctor(System.String,System.String)">
+             <summary>
+             Initializes a new instance of the <see cref="T:SharpConfig.Setting"/> class.
+             </summary>
+            
+             <param name="name"> The name of the setting.</param>
+             <param name="value">The value of the setting.</param>
+        </member>
+        <member name="M:SharpConfig.Setting.GetValue``1">
+             <summary>
+             Gets this setting's value as a specific type.
+             </summary>
+            
+             <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:SharpConfig.Setting.GetValue(System.Type)">
+             <summary>
+             Gets this setting's value as a specific type.
+             </summary>
+            
+             <param name="type">The type.</param>
+        </member>
+        <member name="M:SharpConfig.Setting.SetValue``1(``0)">
+            <summary>
+            Sets the value of this setting via an object.
+            </summary>
+            
+            <param name="value">The value to set.</param>
+        </member>
+        <member name="M:SharpConfig.Setting.SetValue``1(``0[])">
+            <summary>
+            Sets the value of this setting via an array object.
+            </summary>
+            
+            <param name="values">The values to set.</param>
+        </member>
+        <member name="M:SharpConfig.Setting.ToString">
+            <summary>
+            Gets a string that represents the setting. Comments not included.
+            </summary>
+        </member>
+        <member name="M:SharpConfig.Setting.ToString(System.Boolean)">
+             <summary>
+             Gets a string that represents the setting.
+             </summary>
+            
+             <param name="includeComment">Specify true to include the comments in the string; false otherwise.</param>
+        </member>
+        <member name="P:SharpConfig.Setting.Value">
+            <summary>
+            Gets or sets the raw string value of this setting.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.Setting.IsArray">
+            <summary>
+            Gets a value indicating whether this setting is an array.
+            </summary>
+        </member>
+        <member name="P:SharpConfig.Setting.ArraySize">
+            <summary>
+            Gets the size of the array that this setting represents.
+            If this setting is not an array, -1 is returned.
+            </summary>
+        </member>
+        <member name="T:SharpConfig.Section">
+            <summary>
+            节代表一组 <see cref="T:SharpConfig.Setting"/> 对象.
+            </summary>
+        </member>
+        <member name="M:SharpConfig.Section.#ctor(System.String)">
+            <summary>初始化 <see cref="T:SharpConfig.Section"/> 的实例</summary>
+            <param name="name">节的名称</param>
+        </member>
+        <member name="M:SharpConfig.Section.CreateObject``1">
+            <summary>
+            Creates an object of a specific type, and maps the settings
+            in this section to the public properties of the object.
+            </summary>
+            
+            <returns>The created object.</returns>
+            
+            <remarks>
+            The specified type must have a public default constructor
+            in order to be created.
+            </remarks>
+        </member>
+        <member name="M:SharpConfig.Section.MapTo``1(``0)">
+            <summary>
+            Assigns the values of this section to an object's public properties.
+            </summary>
+            
+            <param name="obj">The object that is modified based on the section.</param>
+        </member>
+        <member name="M:SharpConfig.Section.GetEnumerator">
+            <summary>
+            Gets an enumerator that iterates through the section.
+            </summary>
+        </member>
+        <member name="M:SharpConfig.Section.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets an enumerator that iterates through the section.
+            </summary>
+        </member>
+        <member name="M:SharpConfig.Section.Add(SharpConfig.Setting)">
+            <summary>
+            Adds a setting to the section.
+            </summary>
+            <param name="setting">The setting to add.</param>
+        </member>
+        <member name="M:SharpConfig.Section.Clear">
+            <summary>清除节中所有的设置项</summary>
+        </member>
+        <member name="M:SharpConfig.Section.Contains(SharpConfig.Setting)">
+            <summary>检测节中是否存在某个特定的设置</summary>
+            <param name="setting">The setting to check for containment.</param>
+            <returns>True if the setting is contained in the section; false otherwise.</returns>
+        </member>
+        <member name="M:SharpConfig.Section.Contains(System.String)">
+            <summary>检测节中是否存在某个特定名称的设置 </summary>
+            <param name="settingName">设置项的名称</param>
+            <returns>True if the setting is contained in the section; false otherwise.</returns>
+        </member>
+        <member name="M:SharpConfig.Section.Remove(System.String)">
+            <summary>从本节中移除某个名称的设置</summary>
+        </member>
+        <member name="M:SharpConfig.Section.Remove(SharpConfig.Setting)">
+            <summary>从本节中移除某个设置</summary>
+            <param name="setting">要移除的设置对象</param>
+        </member>
+        <member name="M:SharpConfig.Section.ToString">
+             <summary>
+             Returns a string that represents the current object.
+             </summary>
+            
+             <returns>
+             A string that represents the current object.
+             </returns>
+        </member>
+        <member name="M:SharpConfig.Section.ToString(System.Boolean)">
+             <summary>
+             Convert this object into a string representation.
+             </summary>
+            
+             <param name="includeComment">True to include, false to exclude the comment.</param>
+            
+             <returns>
+             A string that represents the current object.
+             </returns>
+        </member>
+        <member name="P:SharpConfig.Section.SettingCount">
+            <summary>获取节中设置项目的总数量</summary>
+        </member>
+        <member name="P:SharpConfig.Section.Item(System.Int32)">
+            <summary>索引获取设置项</summary>
+            <param name="index">设置项在节中的索引</param>
+        </member>
+        <member name="P:SharpConfig.Section.Item(System.String)">
+            <summary>通过名称获取设置</summary>
+            <param name="name">设置项的名称</param>
+            <returns>如果存在该设置，返回，否则将会创建一个指定名称的设置，添加到节中并返回</returns>
+        </member>
+    </members>
+</doc>
